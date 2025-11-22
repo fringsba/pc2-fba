@@ -44,7 +44,7 @@ def crear_indice_vectorial():
   client = pymongo.MongoClient(MONGODB_URI)
   db = client.pdf_embeddings_db
   collection = db.pdf_vectors
-  collection.insert_one({"a":"sample"})
+  #collection.insert_one({"a":"sample"})
 
   existing_indexes = [index['name'] for index in collection.list_search_indexes()]
   if "vector_index" in existing_indexes:
@@ -254,3 +254,4 @@ for msg in st.session_state.historial:
         st.chat_message("user").write(msg["texto"])
     else:
         st.chat_message("assistant").write(msg["texto"])
+
